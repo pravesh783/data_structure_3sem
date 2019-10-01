@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a=10;
+int fun(int);
+printf("use of implicit stack ");
+
+fun(a);
+}
+int fun(int a)
+{
+if(a>0)
+{
+fun(a-1);
+printf("%d",a);
+}
+else
+{
+return a;
+}
+}

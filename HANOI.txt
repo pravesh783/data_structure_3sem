@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void main()
+{
+int n;
+void tower(int n,char from,char to,char aux);
+clrscr();
+printf("PROGRAM OF HANOI TOWER \n ");
+printf(" \nthere were three tower (peg) A ,B,C \n A is main tower ,Bis auxiliary tower and C is resultant tower\n ");
+printf("\n\nEnter the total no of disk :");
+scanf("%d",&n);
+tower(n,'A','C','B');
+getch();
+}
+void tower(int n,char from,char to,char aux)
+{
+if(n==1)
+{
+printf("\n move 1 disk from %c to %c peg ", from ,to);
+return;
+}
+tower(n-1,from,aux,to);
+printf("\n move %d disk from %c to %c peg",n ,from,to);
+tower(n-1,aux,to,from);
+}

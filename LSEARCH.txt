@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+  int arr[10],i,n,num,found=0,pos=1;
+  clrscr();
+  printf("enter the no of element in the array \n");
+  scanf("%d",&n);
+  printf("enter the elements\n ");
+  for(i=0;i<n;i++)
+  scanf("%d",&arr[i]);
+  printf("enter the no that has to be search :");
+  scanf("%d",&num);
+  for(i=0;i<n;i++)
+  {
+  if(arr[i]==num)
+  {
+  found=1;
+  printf("%d is found in array at position =%d ",num,i+1);
+  break;
+  }}
+  if(found==0)
+  printf("%d is not exist in array ",num);
+  getch();
+  }
