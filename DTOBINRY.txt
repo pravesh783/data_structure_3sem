@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define size 50
+struct stack{
+int s[size];
+int top;
+}st;
+void push(int item)
+{
+st.top++;
+st.s[st.top]=item;
+}
+stempty(){
+if(st.top==-1)
+return 1;
+else
+return 0;
+}
+int pop()
+{
+int item;
+item=st.s[st.top];
+st.top--;
+return item;
+}
+void main(void)
+{
+int i,item,num;
+st.top=-1;
+clrscr();
+printf("enter the decimal no");
+scanf("%d",&num);
+while(num>=1)
+{
+item=num%2;
+push(item);
+num=num/2;
+}
+while(!stempty())
+printf("%d",pop());
+getch();
+}

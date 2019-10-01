@@ -1,0 +1,157 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct node
+{
+int data;
+int next;
+}a[10];
+
+void main()
+{char ans;
+int i,head,choice;
+int create();
+void display(int);
+void insert();
+void delete();
+void search();
+do
+{
+clrscr();
+printf("\n MAIN MENU \n ");
+printf("\n 1.create\n 2.display\n 3.insert \n 4.delete \n 5.search \n 6. exit\n");
+printf("enter your choice :");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:
+for(i=0;i<10;i++)
+a[i].data=-1;
+head=create();
+break;
+case 2:
+display(head);
+break;
+case 3:
+insert();
+break;
+case 4:
+delete();
+break;
+case 5:
+search();
+break;
+case 6:
+exit(0);
+
+}
+printf("do you want to continue :");
+ans=getch();
+}
+while(ans=='y'||ans=='Y');
+getch();
+}
+
+int create()
+{
+int i,head;
+printf("enter the index of linked list ");
+scanf("%d",&i);
+head=i;
+while(i!=-1)
+{
+printf("enter the value of data ");
+scanf("%d",&a[i].data);
+printf("enter the value of next:");
+scanf("%d",&a[i].next);
+i=a[i].next;
+}
+return head;
+}
+
+
+void display(int i)
+{
+printf("");
+while(i!=-1)
+{
+if(a[i].data==-1)
+printf("");
+else
+printf("%d\n",a[i].data);
+i=a[i].next;
+}
+printf("NULL");
+}
+
+void insert()
+{
+int i,newdata,temp;
+printf("enter the new data which is to be inserted ");
+scanf("%d",&newdata);
+printf("enter the data after which you want to insert ");
+scanf("%d",&temp);
+for(i=0;i<10;i++)
+{
+if(a[i].data==temp)
+break;
+}
+if(a[i+1].data==-1)
+{
+a[i+1].next=a[i].next;
+a[i].next=i+1;
+a[i+1].data=newdata;
+}
+ }
+
+
+ void delete()
+ {
+ int i,temp,current,newnext;
+ printf("enter the node to be deleted ");
+ scanf("%d",&temp);
+ for(i=0;i<10;i++)
+ {
+ if(a[i].data==temp)
+ {
+ if(a[i].next==-1)
+ {
+ a[i].data=-1;
+ }
+ current=i;
+ newnext=a[i].next;
+ }}
+ for(i=0;i<10;i++)
+ {
+ if(a[i].next==current)
+ {
+ a[i].next=newnext;
+ a[current].data=-1;
+ }
+ }
+ }
+
+
+ void search()
+ {
+ int i,temp,flag=0;
+ printf("enter the element to be search :");
+ scanf("%d",&temp);
+ for(i=0;i<10;i++)
+ {
+ if(a[i].data==temp)
+ {
+ flag=1;
+ break;
+ }
+ }
+ if(flag==1)
+ {
+ printf("%d node is present in the list ",temp);
+ }
+ else
+ printf("the node is not present in the list ");
+ }
+
